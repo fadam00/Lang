@@ -12,8 +12,14 @@ get    '/login',   to: 'sessions#new'
 post   '/login',   to: 'sessions#create'
 delete '/logout',  to: 'sessions#destroy'
 
-resources :users
+resources :users do
+	member do
+		get :watching, :watchers
+	end
+end
+
 resources :requests, only: [:create, :destroy]
+resources :relationships, only: [:create, :destroy]
 
 resources :conversations, only: [:index, :show, :destroy]
 resources :messages, only: [:new, :create]

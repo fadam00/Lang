@@ -1,0 +1,4 @@
+<%= form_for(current_user.active_relationships.find_by(watched_id: @user.id),
+             html: { method: :delete }) do |f| %>
+  <%= f.submit "Unwatch", class: "btn" %>
+<% end %>

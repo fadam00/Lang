@@ -15,7 +15,7 @@ User.create!(name:  "Example User",
              password:              "foobar",
              password_confirmation: "foobar")
 
-99.times do |n|
+60.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@mail.com"
   password = "password"
@@ -28,7 +28,16 @@ end
 #REQUESTS
 
 users = User.order(:created_at).take(6)
-50.times do
+10.times do
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.requests.create!(content: content) }
 end
+
+#Relationships
+
+users = User.all
+user  = users.first
+watching = users[2..30]
+watchers = users[3..20]
+watching.each { |watched| user.watch(watched) }
+watchers.each { |watcher| watcher.watch(user) }

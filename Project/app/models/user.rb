@@ -1,4 +1,13 @@
 class User < ApplicationRecord
+	has_many :active_relationships, class_name: "Relationship",
+									foreign_key: "watcher_id",
+									dependent: 	:destroy
+	  has_many :passive_relationships, class_name:  "Relationship",
+                                   foreign_key: "watched_id",
+                                   dependent:   :destroy
+	has_many :watching, through: :active_relationships, source: :watched 
+	 has_many :watchers, through: :passive_relationships, source: :watcher
+
 	has_many :requests, dependent: :destroy
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	before_save {email.downcase!}
@@ -17,6 +26,18 @@ class User < ApplicationRecord
 
 	def mailboxer_email(object)
 		email
+	end
+
+	def watch(other_user)
+		active_relationships.find_by(watched_id: other_user.id)
+	end
+
+	def unwatch(other_user)
+		active_relationships.find_by(watched_id: other_user.id).destroy
+	end
+
+	def watching?(other_user)
+		watching.include?(other_user)
 	end
 end
 
