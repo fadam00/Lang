@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	acts_as_messageable
 	has_many :requests, dependent: :destroy
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	before_save {email.downcase!}
