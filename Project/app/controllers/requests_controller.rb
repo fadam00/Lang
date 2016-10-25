@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
 	before_action :correct_user,	only: :destroy
 
 	
-	def create
+def create
     @request = current_user.requests.build(request_params)
     if @request.save
       flash[:success] = "Request created!"
@@ -12,14 +12,14 @@ class RequestsController < ApplicationController
     	@feed_itmes = []
     	render 'static_pages/home'
 	end
+end
 
-	def destroy
+def destroy
 	    @request.destroy
 	    flash[:success] = "Request deleted"
 	    redirect_to request.referrer || root_url
-	end
-
 end
+
 
 	private
 
