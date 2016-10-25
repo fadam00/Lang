@@ -11,10 +11,13 @@ class User < ApplicationRecord
 		acts_as_messageable
 
 
-def feed
-	Request.where("user_id = ?", id)
-end
+	def feed
+		Request.where("user_id = ?", id)
+	end
 
+	def mailboxer_email(object)
+		email
+	end
 end
 
 
