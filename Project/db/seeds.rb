@@ -9,6 +9,7 @@
 
 # USERS
 
+frank = User.create!(name: "Frank V. Adames", email: "frank@mail.com", password: "foobar", password_confirmation: "foobar", admin: true)
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",
              password:              "foobar",
