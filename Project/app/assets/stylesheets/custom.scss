@@ -238,3 +238,12 @@ span.picture {
     border: 0;
   }
 }
+
+/* MailBoxer Messages */
+
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}

@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-	acts_as_messageable
 	has_many :requests, dependent: :destroy
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	before_save {email.downcase!}
@@ -9,6 +8,7 @@ class User < ApplicationRecord
 			 uniqueness: {case_sensitive: false}
 		has_secure_password
 		validates :password, presence: true, length: {minimum: 6}
+		acts_as_messageable
 
 
 def feed

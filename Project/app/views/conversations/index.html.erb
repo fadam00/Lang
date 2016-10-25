@@ -1,0 +1,8 @@
+<%= provide(:title, "Conversation") %>
+
+<ul class="list-group">
+
+  <%= render 'conversations/conversation', collection: @conversations %>
+</ul>
+
+<%= will_paginate @conversations %>
