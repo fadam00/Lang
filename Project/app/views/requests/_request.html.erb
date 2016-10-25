@@ -2,7 +2,15 @@
   <%= link_to gravatar_for(request.user, size: 50), request.user %>
   <span class="user"><%= link_to request.user.name, request.user %></span>
   <span class="content"><%= request.content %></span>
+  <% unless request.attachment_url.nil? %>
+  <%= link_to "Download Attachment", request.attachment_url %>
+  <% end %>
   <span class="timestamp">
     Posted <%= time_ago_in_words(request.created_at) %> ago.
+      <% if current_user?(request.user) %>
+      <%= link_to "delete", request, method: :delete,
+                                       data: { confirm: "Are you sure?" } %>
+        <% end %>
   </span>
+
 </li>
