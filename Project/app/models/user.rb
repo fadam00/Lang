@@ -1,14 +1,16 @@
 class User < ApplicationRecord
+	has_many :requests, dependent: :destroy
 	has_many :active_relationships, class_name: "Relationship",
 									foreign_key: "watcher_id",
 									dependent: 	:destroy
 	  has_many :passive_relationships, class_name:  "Relationship",
                                    foreign_key: "watched_id",
                                    dependent:   :destroy
-	has_many :watching, through: :active_relationships, source: :watched 
-	 has_many :watchers, through: :passive_relationships, source: :watcher
 
-	has_many :requests, dependent: :destroy
+	has_many :watching, through: :active_relationships, source: :watched 
+	 has_many :watchers, through: :passive_relationships
+
+	
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	before_save {email.downcase!}
 	validates :name, presence: true, length: {maximum: 50}
@@ -29,7 +31,7 @@ class User < ApplicationRecord
 	end
 
 	def watch(other_user)
-		active_relationships.find_by(watched_id: other_user.id)
+		active_relationships.create(watched_id: other_user.id)
 	end
 
 	def unwatch(other_user)
