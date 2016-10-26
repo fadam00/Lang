@@ -30,6 +30,13 @@ class User < ApplicationRecord
 		email
 	end
 
+	def feed
+    watching_ids = "SELECT watched_id FROM relationships
+                     WHERE  watcher_id = :user_id"
+    Request.where("user_id IN (#{watching_ids})
+                     OR user_id = :user_id", user_id: id)
+	end
+
 	def watch(other_user)
 		active_relationships.create(watched_id: other_user.id)
 	end
