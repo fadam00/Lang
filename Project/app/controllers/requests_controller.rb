@@ -24,7 +24,7 @@ end
 	private
 
 	def request_params
-		params.require(:request).permit(:content, :attachment)
+		params.require(:request).permit(:content, :attachment, :language_from, :language_to, :budget)
 	end
 
 	def correct_user

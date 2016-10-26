@@ -1,10 +1,24 @@
 <%= form_for(@request, html: {multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new request..." %>
-    <span class="attachment">
-    <%= f.file_field :attachment %>
+	<%= f.label :New_Request %>
+    <%= f.text_area :content, placeholder: "Description...", class: "form-control" %>
+	<span class="budget">
+    <%= f.label :Language %>
+    <%= f.text_field :language_from, class: "form-control", placeholder: "From..."%>
+    <%= f.text_field :language_to, class: "form-control", placeholder: "To..."%>
     </span>
+
+	<span class="budget">
+    <%= f.label :budget %>
+    <%= f.number_field :budget, class: "form-control", placeholder: "Approximate budget" %>
+    </span>
+    <span class="attachment">
+    <%= f.label :attachment %>
+    <%= f.file_field :attachment, class: "form-control" %>
+    </span>
+
+
   </div>
   <%= f.submit "Save", class: "btn btn-primary" %>
 <% end %>
