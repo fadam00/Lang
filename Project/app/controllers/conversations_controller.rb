@@ -2,6 +2,7 @@ class ConversationsController < ApplicationController
 
 
 def new
+  @chosen_recipient = User.find_by(id: params[:to].to_i) if params[:to]
 end
 
  def create
@@ -28,6 +29,9 @@ end
 
   def conversation_params
     params.require(:conversation).permit(:subject, :body,recipients:[])
+  end
+    def message_params
+    params.require(:message).permit(:body, :subject, :attachment)
   end
 end
 

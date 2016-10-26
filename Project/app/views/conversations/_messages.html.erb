@@ -13,7 +13,8 @@
           <small><b>Subject: </b><%= message.subject %></small><br>
           <small><b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
         </h4>
-        <%= message.body %>
+         <%= message.body %><br>
+         <small><%= link_to "Download Attachment", message.attachment_url %></small>
       </div>
     </div>
 <% end %>
