@@ -5,7 +5,7 @@
       <%= gravatar_for @user %>
       <h1><%= @user.name %></h1>
       <span><%= link_to "view my profile", @user %></span>
-      <span><b>Microposts:</b> <%= @user.microposts.count %></span>
+      <span><b>Requests:</b> <%= @user.requests.count %></span>
     </section>
     <section class="stats">
       <%= render 'shared/stats' %>
@@ -21,7 +21,7 @@
   <div class="col-md-8">
     <h3><%= @title %></h3>
     <% if @users.any? %>
-      <ul class="users follow">
+      <ul class="users watch">
         <%= render @users %>
       </ul>
       <%= will_paginate %>

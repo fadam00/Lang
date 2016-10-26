@@ -15,7 +15,7 @@ User.create!(name:  "Example User",
              password:              "foobar",
              password_confirmation: "foobar")
 
-60.times do |n|
+99.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@mail.com"
   password = "password"
@@ -37,7 +37,7 @@ end
 
 users = User.all
 user  = users.first
-watching = users[2..30]
-watchers = users[3..20]
+watching = users[2..50]
+watchers = users[3..40]
 watching.each { |watched| user.watch(watched) }
 watchers.each { |watcher| watcher.watch(user) }
