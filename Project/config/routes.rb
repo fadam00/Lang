@@ -12,6 +12,10 @@ get    '/login',   to: 'sessions#new'
 post   '/login',   to: 'sessions#create'
 delete '/logout',  to: 'sessions#destroy'
 
+ get "mailbox/inbox", to: "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent", to: "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash", to: "mailbox#trash", as: :mailbox_trash
+
 resources :users do
 	member do
 		get :watching, :watchers
@@ -21,12 +25,14 @@ end
 resources :requests, only: [:create, :destroy]
 resources :relationships, only: [:create, :destroy]
 
-resources :conversations, only: [:index, :show, :destroy] do
-  member do
-    post :reply
-  end
-end
-resources :messages, only: [:new, :create]
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+   end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

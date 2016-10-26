@@ -11,6 +11,8 @@ def redirect_back_or(path)
   redirect_to request.referer || path
 end
 
+
+helper_method :mailbox, :conversation
   private
 
       def logged_in_user
@@ -20,4 +22,12 @@ end
     		redirect_to login_url
     	end
     end
+
+      def conversation
+    @conversation ||= mailbox.conversations.find(params[:id])
+  end
+
+   def mailbox
+    @mailbox ||= current_user.mailbox
+  end
 end

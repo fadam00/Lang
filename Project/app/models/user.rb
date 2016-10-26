@@ -19,15 +19,18 @@ class User < ApplicationRecord
 			 uniqueness: {case_sensitive: false}
 		has_secure_password
 		validates :password, presence: true, length: {minimum: 6}
+		
+
 		acts_as_messageable
 
 
-	def feed
-		Request.where("user_id = ?", id)
-	end
 
 	def mailboxer_email(object)
-		email
+		self.email
+	end
+
+	def mailboxer_name
+		self.name
 	end
 
 	def feed

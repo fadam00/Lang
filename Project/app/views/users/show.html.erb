@@ -5,7 +5,10 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %> <br>
-        <%= @user.email %>
+        <%= @user.email %><br>
+        <%unless current_user == @user%>        
+        <%= link_to 'Send message', new_message_path(to: @user.id), class: 'btn btn-default btn-sm' %>
+        <% end %>
       </h1>
     </section>
     <section class="stats">
