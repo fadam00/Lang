@@ -10,12 +10,19 @@
   <div class="panel-body">
     <div class="messages">
       <% @conversation.receipts_for(current_user).each do |receipt| %>
-        <% message = receipt.message %>
+        <% message = receipt.message %><br>
 
         <%= message.sender.name %>
-          says at <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %>
-        <%= message.body %>
+          says: <%= message.body %><br>
+        <small>     <%= message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></small><br>
+
       <% end %>
+        <%= form_tag reply_conversation_path(@conversation), method: :post do %>
+  <div class="form-group">
+    <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
+  </div>
+  <%= submit_tag "Send Message", class: 'btn btn-primary' %>
+<% end %>     
     </div>
   </div>
 </div>
