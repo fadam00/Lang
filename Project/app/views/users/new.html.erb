@@ -14,14 +14,16 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :role %>
-      <%= f.text_field :role, class: 'form-control',placeholder: "Translator or Client..."  %>
-
-      <%= f.label :password %>
+    <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+       <%= radio_button_tag(:role, "translator") %> <br />
+      <%= label_tag(:role_translator, "Translator") %>
+      <%= radio_button_tag(:role, "client") %>
+      <%= label_tag(:role_client, "Client") %>
 
       <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
     <% end %>
