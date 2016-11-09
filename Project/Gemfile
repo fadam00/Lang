@@ -19,6 +19,8 @@ gem 'fog'
 gem 'mailboxer'
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
+gem 'simple_form'
+
 
 
 group :development, :test do

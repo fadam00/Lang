@@ -19,11 +19,8 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
+    
 
-       <%= radio_button_tag(:role, "translator") %> <br />
-      <%= label_tag(:role_translator, "Translator") %>
-      <%= radio_button_tag(:role, "client") %>
-      <%= label_tag(:role_client, "Client") %>
 
       <%= f.submit yield(:button_text), class: 'btn btn-primary' %>
     <% end %>
