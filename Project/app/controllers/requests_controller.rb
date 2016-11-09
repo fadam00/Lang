@@ -15,6 +15,8 @@ def create
 end
 
 def destroy
+		@request = current_user.requests.find(params[:id])
+
 	    @request.destroy
 	    flash[:success] = "Request deleted"
 	    redirect_to request.referrer || root_url
@@ -28,7 +30,7 @@ end
 	end
 
 	def correct_user
-		@request = current_user.requests.find_by(id: params[:id])
+		@request = current_user.requests.find(params[:id])
 		redirect_to root_url if @request.nil?
 		end
 
