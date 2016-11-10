@@ -15,9 +15,11 @@ ActiveRecord::Schema.define(version: 20161109215954) do
   create_table "comments", force: :cascade do |t|
     t.string   "content"
     t.integer  "request_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["request_id"], name: "index_comments_on_request_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|

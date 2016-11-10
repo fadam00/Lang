@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+
+  get 'comments/create'
+
+  get 'comments/destroy'
+
 root 'static_pages#home'
 
 get '/help', to: "static_pages#help"
@@ -23,6 +29,7 @@ resources :users do
 end
 
 resources :requests, only: [:create, :destroy]
+resources :comments, onlu: [:create, :destroy]
 resources :relationships, only: [:create, :destroy]
 
   resources :conversations do

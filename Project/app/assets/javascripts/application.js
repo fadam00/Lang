@@ -13,7 +13,13 @@
 //= require jquery
 //= require chosen-jquery
 //= require conversations
+//= require magnific-popup
+//= require scrollReveal
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  window.scrollReveal = new scrollReveal();
+});

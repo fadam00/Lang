@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	has_many :requests, dependent: :destroy
+	has_many :comments
 	has_many :active_relationships, class_name: "Relationship",
 									foreign_key: "watcher_id",
 									dependent: 	:destroy

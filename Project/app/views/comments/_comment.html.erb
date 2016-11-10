@@ -1,0 +1,22 @@
+<li id="@comment-<%= @comment.id %>">
+
+  <%= link_to gravatar_for(@comment.user, size: 50), @comment.user %>
+
+  <span class="user"><%= link_to @comment.user.name, @comment.user %></span>
+
+  <span class="content"><%=  @comment.content %></span>
+
+
+  <% unless @comment.attachment_url.nil? %>
+  <%= link_to "Download Attachment", @comment.attachment_url %>
+  <% end %>
+
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(@comment.created_at) %> ago.
+      <% if current_user?(@comment.user) %>
+      <%= link_to "delete", @comment, method: :delete,
+                                       data: { confirm: "Are you sure?" } %>
+        <% end %>
+  </span>
+
+</li>

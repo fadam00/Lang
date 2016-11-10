@@ -13,7 +13,10 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-  	@requests = @user.requests.paginate(page: params[:page])
+    @request = current_user.requests.build
+    @feed_items = current_user.feed.paginate(page: params[:page], per_page: 7)
+  	@requests = @user.requests.paginate(page: params[:page], per_page: 7)
+    
   end
 
  def create
@@ -21,7 +24,7 @@ class UsersController < ApplicationController
     if @user.save
     	log_in @user
     	flash[:success] = "Welcome to Lang!"
-    	redirect_to root_url 
+    	redirect_to current_user 
     else
       render 'new'
     end
