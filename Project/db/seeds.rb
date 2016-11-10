@@ -30,23 +30,23 @@ pedro = User.create!(name: "Pedro Mendez", email: "pedro@mail.com", password: "f
 	)
 
 
-# 99.times do |n|
-#   name  = Faker::Name.name
-#   email = "example-#{n+1}@mail.com"
-#   password = "password"
-#   User.create!(name:  name,
-#                email: email,
-#                password:              password,
-#                password_confirmation: password)
-# end
+99.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+1}@mail.com"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password)
+end
 
-# #REQUESTS
+#REQUESTS
 
-# users = User.order(:created_at).take(6)
-# 10.times do
-#   content = Faker::Lorem.sentence(5)
-#   users.each { |user| user.requests.create!(content: content) }
-# end
+users = User.order(:created_at).take(6)
+10.times do
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.requests.create!(content: content) }
+end
 
 # #Relationships
 
