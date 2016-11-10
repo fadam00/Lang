@@ -12,11 +12,10 @@
 //
 //= require jquery
 //= require chosen-jquery
-//= require conversations
-//= require magnific-popup
-//= require scrollReveal
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require conversations
+//= require smooth
 //= require turbolinks
 //= require_tree .
 
