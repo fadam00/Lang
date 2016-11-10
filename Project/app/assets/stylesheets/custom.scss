@@ -18,6 +18,10 @@ body {
   padding-top: 60px;
 }
 
+.tshadow {
+    text-shadow: 1px 1px #5c5d60;
+}
+
 section {
   overflow: auto;
 }
@@ -37,6 +41,11 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+}
+
+.tlogo {
+  font-family: 'Yellowtail', cursive;
+  font-size: 16px
 }
 
 h1 {
@@ -188,7 +197,7 @@ aside {
     }
     &:hover {
       text-decoration: none;
-      color: blue;
+      color: #2A537F;
     }
   }
   strong {

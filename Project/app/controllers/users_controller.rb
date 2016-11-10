@@ -8,14 +8,14 @@ class UsersController < ApplicationController
   end 
 
   def index
-  	@users = User.order('created_at DESC').paginate(page: params[:page], per_page: 15)
+  	@users = User.order('created_at DESC').paginate(page: params[:page], per_page: 7)
   end
 
   def show
   	@user = User.find(params[:id])
     @request = current_user.requests.build
-    @feed_items = current_user.feed.paginate(page: params[:page], per_page: 7)
-  	@requests = @user.requests.paginate(page: params[:page], per_page: 7)
+    @feed_items = current_user.feed.paginate(page: params[:feed_page], per_page: 4)
+  	@requests = @user.requests.paginate(page: params[:requests_page], per_page: 4)
     
   end
 

@@ -19,13 +19,13 @@
   </aside>
       <div class="col-md-8">
       <div class="opaque">
-          <% if @user.requests.any? %>
+      <% if @user.requests.any? %>
     <div>
       <h3>My Requests (<%= @user.requests.count %>)</h3>
       <ol class="requests">
         <%= render @requests %>
       </ol>
-      <%= will_paginate @requests %>
+      <%= will_paginate @requests, :param_name => 'requests_page' %>
     </div>
     <% end %>
       <h3>Request Watchlist</h3>

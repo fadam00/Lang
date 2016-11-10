@@ -43,16 +43,16 @@ end
 #REQUESTS
 
 users = User.order(:created_at).take(6)
-10.times do
+50.times do
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.requests.create!(content: content) }
 end
 
-# #Relationships
+#Relationships
 
-# users = User.all
-# user  = users.first
-# watching = users[2..50]
-# watchers = users[3..40]
-# watching.each { |watched| user.watch(watched) }
-# watchers.each { |watcher| watcher.watch(user) }
+users = User.all
+user  = users.first
+watching = users[2..50]
+watchers = users[3..40]
+watching.each { |watched| user.watch(watched) }
+watchers.each { |watcher| watcher.watch(user) }
