@@ -1,35 +1,37 @@
 <div class="center jumbotron">
 	<h1>Welcome to Lang!</h1>
 	<h3><em>Where translators and clients meet...</em></h3>
+	  <%= link_to "Sign up now!", '/signup', class: "btn btn-lg btn-primary" %>
 </div>
 <div class="center jumbotron">
 	<h1><em>Get Started!</em></h1>
 	<div class="container navbar">
+
 		<% if logged_in? %>
+
 		<a href='#'>
 			<span class="large glyphicon glyphicon-ok"><p>Register to the site</p></span>
 		</a>
 		<a href="/users/<%= current_user.id %>">
 			<span class="glyphicon glyphicon-file"><p>Submit a request!</p></span>
 		</a>
+
 		<% else %>
+
 		<a href='/signup'>
 			<span class="large glyphicon glyphicon-ok"><p>Register to the site</p></span>
 		</a>
 			<a href="#">
 			<span class="glyphicon glyphicon-file"><p>Submit a request!</p></span>
+
 		<% end %>
 
 		<a href="mailbox/inbox">
 		<span class="large glyphicon glyphicon-inbox">
 			<p>Communicate via private messaging!</p></span>
 		</a>
-		<a href="#">
-			<span class="glyphicon glyphicon-eye-open"><p>Watch users to follow their requests!</p></span>
+		<a href="/users">
+			<span class="glyphicon glyphicon-eye-open"><p>Click on a user and watch them to follow their requests!</p></span>
 		</a>
 	</div>
-</div>
-<div class="center jumbotron">
-	<h1>Help</h1>
-	<h2>This is the help section</h2>
 </div>
