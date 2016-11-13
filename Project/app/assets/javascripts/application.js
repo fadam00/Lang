@@ -15,10 +15,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require conversations
-//= require smooth
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-  window.scrollReveal = new scrollReveal();
-});

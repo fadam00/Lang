@@ -43,6 +43,30 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
 
+.glyphicon-eye-open {
+  height: 0px
+}
+
+.glyphicon {
+  font-size: 100px;
+  display: inline-block;
+  color: #333333;
+  width: 225px;
+  padding-top: 40px;
+    p {
+  font-size: 16px;
+  line-height: 1em;
+  color: #7A827C;
+  padding: 20px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif; }
+  &
+  :hover {
+  color: #333333;
+  }
+}
+
+
 .tlogo {
   font-family: 'Yellowtail', cursive;
   font-size: 16px
@@ -64,10 +88,7 @@ h2 {
   color: $gray-light;
 }
 
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
+
 
 
 /* header */
@@ -315,17 +336,4 @@ span.picture {
   margin-top: 1em;
 }
 
-/* Homepage Sections */
-
-#page1 {
-  height: 1000px
-}
-
-#page2 {
-  height: 1000px
-}
-
-#page2 {
-  height: 1000px
-}
 
