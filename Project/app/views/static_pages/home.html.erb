@@ -15,17 +15,6 @@
 		<a href="/users/<%= current_user.id %>">
 			<span class="glyphicon glyphicon-file"><p>Submit a request</p></span>
 		</a>
-
-		<% else %>
-
-		<a href='/signup'>
-			<span class="large glyphicon glyphicon-ok"><p>Register to the site</p></span>
-		</a>
-			<a href="#">
-			<span class="glyphicon glyphicon-file"><p>Submit a request</p></span>
-
-		<% end %>
-
 		<a href="mailbox/inbox">
 		<span class="large glyphicon glyphicon-inbox">
 			<p>Communicate via private messaging</p></span>
@@ -33,5 +22,25 @@
 		<a href="/users">
 			<span class="glyphicon glyphicon-eye-open"><p>Click on a user and watch them to follow their requests</p></span>
 		</a>
+
+		<% else %>
+
+		<a href='/signup'>
+			<span class="large glyphicon glyphicon-ok"><p>Register to the site</p></span>
+		</a>
+
+
+			<span class="glyphicon glyphicon-file"><p>Submit a request</p></span>
+		
+		
+		<span class="large glyphicon glyphicon-inbox">
+			<p>Communicate via private messaging</p></span>
+		
+	
+			<span class="glyphicon glyphicon-eye-open"><p>Click on a user and watch them to follow their requests</p></span>
+				
+	
+
+		<% end %>
 	</div>
 </div>
