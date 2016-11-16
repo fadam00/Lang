@@ -1,17 +1,15 @@
 <%= form_for :conversation, url: :conversations, html: { multipart: true} do |f| %>
-    <div class="form-group">
-      <%= f.label :recipients %>
-      <%= f.select(:recipients, recipients_options(@chosen_recipient), {}, { multiple: true , class: "form-control chosen-it" })%>
-    </div>
-    <div class="form-group">
-      <%= f.label :subject %>
-      <%= f.text_field :subject, placeholder: "Subject", class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :message %>
-      <%= f.text_area :body, class: 'form-control',placeholder: "Type your message here", rows: 4  %>
-    </div>
-
-    <%= f.submit "Send Message", class: "btn btn-success" %>
-
+<div class="form-group">
+  <%= f.label :recipients %>
+  <%= f.select(:recipients, recipients_options(@chosen_recipient), {}, { multiple: true , class: "form-control chosen-it" })%>
+</div>
+<div class="form-group">
+  <%= f.label :subject %>
+  <%= f.text_field :subject, placeholder: "Subject", class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= f.label :message %>
+  <%= f.text_area :body, class: 'form-control',placeholder: "Type your message here", rows: 4  %>
+</div>
+<%= f.submit "Send Message", class: "btn btn-success" %>
 <% end %>

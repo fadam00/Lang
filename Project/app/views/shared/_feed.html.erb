@@ -1,6 +1,6 @@
 <% if @feed_items.any? %>
-  <ol class="requests">
-    <%= render @feed_items %>
-  </ol>
-  <%= will_paginate @feed_items, :param_name => 'feed_page' %>
+<ol class="requests">
+	<%= render @feed_items %>
+</ol>
+<%= will_paginate @feed_items, :param_name => 'feed_page' %>
 <% end %>

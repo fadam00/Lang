@@ -1,12 +1,11 @@
- <li>
-      <%= gravatar_for user, size: 50 %>
-     <span class="tshadow"> <%= link_to user.name, user %></span><br>
-    Requests: <%=user.requests.count%>
-      <% unless current_user == user %>
-        <%= link_to 'Send message', new_conversation_path(to: user.id), class: 'btn btn-default btn-sm' %>
-        <%end%>
-
-      <% if current_user.admin? && !current_user?(user) %>
-       		| <%= link_to "Delete", user, method: :delete, data: { confirm: "Are you sure?" },class: 'btn btn-default btn-sm' %>
-		<% end %>
-  </li>
+<li>
+  <%= gravatar_for user, size: 50 %>
+  <span class="tshadow"> <%= link_to user.name, user %></span><br>
+  Requests: <%=user.requests.count%>
+  <% unless current_user == user %>
+  <%= link_to 'Send message', new_conversation_path(to: user.id), class: 'btn btn-default btn-sm' %>
+  <%end%>
+  <% if current_user.admin? && !current_user?(user) %>
+  | <%= link_to "Delete", user, method: :delete, data: { confirm: "Are you sure?" },class: 'btn btn-default btn-sm' %>
+  <% end %>
+</li>
