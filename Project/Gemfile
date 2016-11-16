@@ -19,10 +19,8 @@ gem 'fog'
 gem 'mailboxer'
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
-gem 'simple_form'
-gem 'font-awesome-rails'
-gem 'magnific-popup-rails'
-gem 'scrollreveal-rails'
+gem 'figaro'
+
 
 
 
