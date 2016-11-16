@@ -20,6 +20,7 @@ gem 'mailboxer'
 gem 'chosen-rails'
 gem 'jquery-turbolinks'
 gem 'figaro'
+gem 'simple_form'
 
 
 
