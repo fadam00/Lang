@@ -19,13 +19,9 @@
   </aside>
   <div class="col-md-8">
     <div class="opaque">
-      <% if @user.requests.any? %>
+      <% if @user.requests.any?%>
       <div>
-      <% if current_user? %>
-        <h3>My Requests (<%= @user.requests.count %>)</h3>
-      <% else %>
-        <h3>Requests (<%= @user.requests.count %>)</h3>
-      <% end %>
+        <h3>Requests (<%= @user.requests.count %>)</h3> 
         <ol class="requests">
           <%= render @requests %>
         </ol>
