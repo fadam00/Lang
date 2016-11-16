@@ -21,7 +21,7 @@
     <div class="opaque">
       <% if @user.requests.any? %>
       <div>
-      <% if current_user %>
+      <% if current_user? %>
         <h3>My Requests (<%= @user.requests.count %>)</h3>
       <% else %>
         <h3>Requests (<%= @user.requests.count %>)</h3>
