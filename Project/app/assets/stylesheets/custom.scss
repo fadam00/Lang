@@ -17,6 +17,9 @@ $gray-medium-light: #eaeaea;
 body { padding-top: 75px;}
 @media screen and (max-width: 768px) {
     body { padding-top: 200px}
+    .nav>li { height: 25px;
+            position: relative;
+            display: inline-block}
 }
 
 
